@@ -1,0 +1,11 @@
+<h1><%= @apartment.building %> #<%= @apartment.unit %></h1>
+<h2>Details:</h2>
+<p>Paint Scheme: <%= @apartment.paint_scheme %></p>
+<p>Kitchen Counter Type: <%= @apartment.kitchen_counter %></p>
+<p>Bathroom Amenities: <%= @apartment.bathroom_sink %></p>
+<p>Refrigerator Type: <%= @apartment.refrigerator_type %></p>
+<p>AC Filter Last Changed: <%= @apartment.ac_maint %></p>
+<p>Refrigerator Last Maintained: <%= @apartment.refrigerator_maint %></p>
+<p>Last Update: <%= @apartment.updated_at %></p>
+<p>Notes: <%= @apartment.notes %></p>
+<p><%= link_to "edit", edit_apartment_path(@apartment) %></p>

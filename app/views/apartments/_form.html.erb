@@ -1,0 +1,35 @@
+<%= form_for @apartment do |f| %>
+    <%= f.label :paint_scheme %>
+    <br />
+    <%= f.text_field :paint_scheme %>
+    <br />
+    <%= f.label :kitchen_counter %>
+    <br />
+    <%= f.text_field :kitchen_counter %>
+    <br />
+    <%= f.label :bathroom_sink %>
+    <br />
+    <%= f.text_field :bathroom_sink %>
+    <br />
+    <%= f.label :refrigerator_type %>
+    <br />
+    <%= f.text_field :refrigerator_type %>
+    <br />
+    <%= f.label :ac_filter %>
+    <br />
+    <%= f.text_field :ac_filter %>
+    <br />
+    <%= f.label :ac_maint %>
+    <br />
+    <%= f.text_field :ac_maint %>
+    <br />
+    <%= f.label :refrigerator_maint %>
+    <br />
+    <%= f.text_field :refrigerator_maint %>
+    <br />
+    <%= f.label :notes %>
+    <br />
+    <%= f.text_area :notes %>
+    <br />
+    <%= f.submit %>
+<% end %>

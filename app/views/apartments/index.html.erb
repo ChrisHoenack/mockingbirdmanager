@@ -1,0 +1,6 @@
+<h1>apartments#index</h1>
+<% @apartments.each do |apt| %>
+    <p>
+        <%= link_to "#{apt.building} ##{apt.unit}", apartment_path(apt) %>
+    </p>
+<% end %>
