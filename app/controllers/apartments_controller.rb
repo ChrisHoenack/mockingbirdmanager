@@ -36,6 +36,9 @@ class ApartmentsController < ApplicationController
     end
 
     def apartment_params
-      params.require(:apartment).permit(:building, :unit, :paint_scheme, :kitchen_counter, :bathroom_sink, :refrigerator_type, :ac_filter, :ac_maint, :refrigerator_maint, :notes)
+      params.require(:apartment).permit(:building, :unit, :paint_scheme, 
+                                        :kitchen_counter, :bathroom_sink, 
+                                        :refrigerator_type, :ac_filter, 
+                                        :ac_maint, :refrigerator_maint, :notes)
     end
 end
