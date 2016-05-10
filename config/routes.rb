@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :apartments
+  resources :tenants
   
   root "apartments#index"
   # The priority is based upon order of creation: first created -> highest priority.

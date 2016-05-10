@@ -1,0 +1,5 @@
+<% @tenants.each do |t| %>
+    <p>
+        <%= link_to "#{t.last_name}, #{t.first_name}", tenant_path(t) %>
+    </p>
+<% end %>

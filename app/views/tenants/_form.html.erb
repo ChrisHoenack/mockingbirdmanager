@@ -1,0 +1,19 @@
+<%= form_for @tenant do |f| %>
+    <%= f.label :first_name %>
+    <br />
+    <%= f.text_field :first_name %>
+    <br />
+    <%= f.label :last_name %>
+    <br />
+    <%= f.text_field :last_name %>
+    <br />
+    <%= f.label :dob %>
+    <br />
+    <%= f.text_field :dob %>
+    <br />
+    <%= f.label :notes %>
+    <br />
+    <%= f.text_area :notes %>
+    <br />
+    <%= f.submit %>
+<% end %>
