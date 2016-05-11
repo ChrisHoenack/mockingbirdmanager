@@ -1,35 +1,46 @@
 <%= form_for @apartment do |f| %>
-    <%= f.label :paint_scheme %>
+    <div class="input-group input-group-md">
+        <%= f.label :paint_scheme, class: "input-group-addon chriswidth" %>
+        <%= f.text_field :paint_scheme, class: "form-control" %>
+    </div>
     <br />
-    <%= f.text_field :paint_scheme %>
+    <div class="input-group input-group-md">
+        <%= f.label :kitchen_counter, class: "input-group-addon chriswidth" %>
+        <%= f.text_field :kitchen_counter, class: "form-control" %>
+    </div>
     <br />
-    <%= f.label :kitchen_counter %>
+    <div class="input-group input-group-md">
+        <%= f.label :bathroom_sink, class: "input-group-addon chriswidth" %>
+        <%= f.text_field :bathroom_sink, class: "form-control" %>
+    </div>
     <br />
-    <%= f.text_field :kitchen_counter %>
+    <div class="input-group input-group-md">
+        <%= f.label :refrigerator_type, class: "input-group-addon chriswidth" %>
+        <%= f.text_field :refrigerator_type, class: "form-control" %>
+    </div>
     <br />
-    <%= f.label :bathroom_sink %>
+    <div class="input-group input-group-md">
+        <%= f.label :ac_filter, class: "input-group-addon chriswidth" %>
+        <%= f.text_field :ac_filter, class: "form-control" %>
+    </div>
     <br />
-    <%= f.text_field :bathroom_sink %>
+    <div class="input-group input-group-md">
+        <%= f.label :ac_maint, class: "input-group-addon chriswidth" %>
+        <div class="form-control">
+            <%= f.date_select :ac_maint %>
+        </div>
+    </div>
     <br />
-    <%= f.label :refrigerator_type %>
-    <br />
-    <%= f.text_field :refrigerator_type %>
-    <br />
-    <%= f.label :ac_filter %>
-    <br />
-    <%= f.text_field :ac_filter %>
-    <br />
-    <%= f.label :ac_maint %>
-    <br />
-    <%= f.text_field :ac_maint %>
-    <br />
-    <%= f.label :refrigerator_maint %>
-    <br />
-    <%= f.text_field :refrigerator_maint %>
+    <div class="input-group input-group-md">
+        <%= f.label :refrigerator_maint, class: "input-group-addon chriswidth" %>
+        <div class="form-control">
+            <%= f.date_select :refrigerator_maint %>
+        </div>
+    </div>
     <br />
     <%= f.label :notes %>
     <br />
-    <%= f.text_area :notes %>
+    <%= f.text_area :notes, class: "form-control", rows: "5" %>
     <br />
-    <%= f.submit %>
+    <div class="text-center"><%= f.submit "Submit", class: "btn btn-danger" %></div>
 <% end %>

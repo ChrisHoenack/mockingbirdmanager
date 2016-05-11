@@ -5,17 +5,45 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <style>
+    .chriswidth {
+      min-width: 210px;
+    }
+  </style>
 </head>
 <body>
+    
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-brand"><%= link_to "MockingbirdManager", root_path %></div>
+      <% if user_signed_in? %>
+        <div class="nav navbar-nav navbar-right">
+          <%= link_to "New Lease", new_lease_path, class: "btn btn-success navbar-btn" %>
+          <%= link_to "New Application", new_tenant_path, class: "btn btn-info navbar-btn" %>
+          <%= link_to "Sign Out", destroy_user_session_path, class: "btn btn-default navbar-btn", method: :delete %>
+          <%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-default navbar-btn" %>
+        </div>
+      <% else %>
+        <div class="nav navbar-nav navbar-right">
+          <%= form_for(:user, :url => session_path(:user)) do |f| %>
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true %>
+            <%= f.label :password %>
+            <%= f.password_field :password, autocomplete: "off" %>
+            <%= f.submit "Log in", class: "btn btn-default navbar-btn" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </nav>
+  
   
   <div class="container">
-    
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  
-    <%= yield %>
-    
+    <% if ! notice.nil? || ! alert.nil? %>
+      <h3 class="notice text-danger text-center"><%= notice %><%= alert %></h3>
+    <% end %>
+      <%= yield %>
   </div>
-
+  
 </body>
 </html>

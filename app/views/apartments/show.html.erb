@@ -1,11 +1,54 @@
-<h1><%= @apartment.building %> #<%= @apartment.unit %></h1>
-<h2>Details:</h2>
-<p>Paint Scheme: <%= @apartment.paint_scheme %></p>
-<p>Kitchen Counter Type: <%= @apartment.kitchen_counter %></p>
-<p>Bathroom Amenities: <%= @apartment.bathroom_sink %></p>
-<p>Refrigerator Type: <%= @apartment.refrigerator_type %></p>
-<p>AC Filter Last Changed: <%= @apartment.ac_maint %></p>
-<p>Refrigerator Last Maintained: <%= @apartment.refrigerator_maint %></p>
-<p>Last Update: <%= @apartment.updated_at %></p>
-<p>Notes: <%= @apartment.notes %></p>
-<p><%= link_to "Edit", edit_apartment_path(@apartment) %> | <%= link_to "Home", root_path %></p>
+<h1 class="text-center"><%= @apartment.building %> #<%= @apartment.unit %> Details:</h1>
+<p class="input-group input-group-md"><span class="input-group-addon chriswidth">Current Tenant:</span>
+    <span class="form-control">
+        <% if @apartment.tenants.first %>
+            <%= @apartment.tenants.first.first_name %> <%= @apartment.tenants.first.last_name %>
+        <% else %>
+            Vacant
+        <% end %>
+    </span>
+</p>
+<p class="input-group input-group-md">
+    <span class="input-group-addon chriswidth">Paint Scheme:</span> 
+    <span class="form-control"><%= @apartment.paint_scheme %></span>
+</p>
+<p class="input-group input-group-md">
+    <span class="input-group-addon chriswidth">Kitchen Counter Type:</span> 
+    <span class="form-control"><%= @apartment.kitchen_counter %></span>
+</p>
+<p class="input-group input-group-md">
+    <span class="input-group-addon chriswidth">Bathroom Amenities:</span> 
+    <span class="form-control"><%= @apartment.bathroom_sink %></span>
+</p>
+<p class="input-group input-group-md">
+    <span class="input-group-addon chriswidth">Refrigerator Type:</span> 
+    <span class="form-control"><%= @apartment.refrigerator_type %></span>
+</p>
+<p class="input-group input-group-md">
+    <span class="input-group-addon chriswidth">AC Filter Type:</span> 
+    <span class="form-control"><%= @apartment.ac_filter %></span>
+</p>
+<p class="input-group input-group-md">
+    <span class="input-group-addon chriswidth">AC Filter Last Changed:</span> 
+    <span class="form-control">
+        <%= @apartment.ac_maint ? "#{time_ago_in_words(@apartment.ac_maint)} ago." : nil %>
+    </span>
+</p>
+<p class="input-group input-group-md">
+    <span class="input-group-addon chriswidth">Refrigerator Last Maintained:</span> 
+    <span class="form-control">
+        <%= @apartment.ac_maint ? "#{time_ago_in_words(@apartment.refrigerator_maint)} ago." : nil %>
+    </span>
+</p>
+<p class="input-group input-group-md">
+    <span class="input-group-addon chriswidth">Last Update:</span> 
+    <span class="form-control"><%= @apartment.updated_at %></span>
+</p>
+<p class="input-group input-group-md">
+    <span class="input-group-addon chriswidth">Notes:</span>
+    <span class="form-control"><%= @apartment.notes %></span>
+</p>
+<p class="text-center">
+    <%= link_to "Edit", edit_apartment_path(@apartment), class: "btn btn-warning" %> 
+    <%= link_to "Home", root_path, class: "btn btn-info" %>
+</p>

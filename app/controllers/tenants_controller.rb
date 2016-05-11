@@ -1,5 +1,6 @@
 class TenantsController < ApplicationController
-  before_action :set_tenant, only: [:show, :edit, :update]
+  before_action :set_tenant, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
     
   def index
     @tenants = Tenant.all
@@ -16,6 +17,13 @@ class TenantsController < ApplicationController
   end
   
   def create
+    @tenant = Tenant.new(tenant_params)
+    
+    if @tenant.save 
+        redirect_to @tenant, notice: "Successfully created new Tenant"
+    else
+        render 'new'
+    end
   end
   
   def update
