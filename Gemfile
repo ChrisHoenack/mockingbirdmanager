@@ -27,6 +27,10 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 
 gem 'devise', '~> 4.1'
 
+gem 'bootstrap-datepicker-rails'
+
+gem 'seed_dump', '~> 3.2', '>= 3.2.4'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

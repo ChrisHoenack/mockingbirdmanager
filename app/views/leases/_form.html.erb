@@ -2,12 +2,12 @@
   <div class="form-group">
     <%= f.label :tenant_id %>
     <br />
-    <%= f.text_field :tenant_id, class: 'form-control' %>
+    <%= f.collection_select(:tenant_id, Tenant.all.select { |t| t.leases.count == 0 }, :id, :full_name, { prompt: true }, class: "form-control") %>
   </div>
   <div class="form-group">
     <%= f.label :apartment_id %>
     <br />
-    <%= f.text_area :apartment_id, class: 'form-control' %>
+    <%= f.collection_select(:apartment_id, Apartment.all.select { |a| a.leases.count == 0 }, :id, :unit_name, { prompt: true }, class: "form-control") %>
   </div>
   <div class="text-center"><%= f.submit "Submit", class: "btn btn-danger"%></div>
 <% end %>

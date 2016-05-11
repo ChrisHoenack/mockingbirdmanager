@@ -26,16 +26,26 @@
     <br />
     <div class="input-group input-group-md">
         <%= f.label :ac_maint, class: "input-group-addon chriswidth" %>
-        <div class="form-control">
-            <%= f.date_select :ac_maint %>
-        </div>
+        <%= f.text_field :ac_maint, class: "datepicker form-control" %>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.datepicker').datepicker({
+                    format: 'yyyy-mm-dd'
+                });
+            });
+        </script>
     </div>
     <br />
     <div class="input-group input-group-md">
         <%= f.label :refrigerator_maint, class: "input-group-addon chriswidth" %>
-        <div class="form-control">
-            <%= f.date_select :refrigerator_maint %>
-        </div>
+        <%= f.text_field :refrigerator_maint, class: "datepicker form-control" %>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.datepicker').datepicker({
+                    format: 'yyyy-mm-dd'
+                });
+            });
+        </script>
     </div>
     <br />
     <%= f.label :notes %>

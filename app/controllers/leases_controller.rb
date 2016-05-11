@@ -20,7 +20,7 @@ class LeasesController < ApplicationController
     @lease = Lease.new(lease_params)
   
     if @lease.save 
-        redirect_to @lease, notice: "Successfully created new Lease"
+        redirect_to root_path, notice: "Successfully created new Lease for #{@lease.apartment.unit_name}"
     else
         render 'new'
     end
@@ -28,13 +28,15 @@ class LeasesController < ApplicationController
   
   def update
     if @lease.update(lease_params)
-      redirect_to @lease, notice: 'Lease was successfully updated.'
+      redirect_to root_path, notice: 'Lease was successfully updated.'
     else
       render 'edit'
     end
   end
   
   def destroy
+    @lease.destroy
+    redirect_to root_path
   end
   
   private

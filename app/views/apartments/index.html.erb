@@ -2,7 +2,13 @@
 <div class="row">
     <% @apartments.each do |apt| %>
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <h3 class="btn btn-<% if apt.leases.first != nil %>success<% else %>warning<% end %>"><%= link_to "#{apt.building} ##{apt.unit}", apartment_path(apt), class: "btn btn-default btn-lg" %></h3>
+            <% color_code = "" %>
+            <% if apt.leases.first != nil %>
+                <% color_code = "success" %>
+            <% else %>
+                <% color_code = "warning" %>
+            <% end %>
+            <h1><%= link_to "#{apt.building} ##{apt.unit}", apartment_path(apt), class: "btn btn-#{color_code} btn-lg", style: "font-weight: 900; border-width: 10px; border-radius: 30px;" %></h1>
         </div>
     <% end %>
 </div>
