@@ -13,6 +13,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'devise', '~> 4.1'
 gem 'bootstrap-datepicker-rails'
 gem 'jquery-turbolinks', '~> 2.1'
+gem 'puma'
 
 group :development, :test do
   gem 'sqlite3'
@@ -26,7 +27,6 @@ group :development, :test do
   gem 'seed_dump', '~> 3.2', '>= 3.2.4'
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'puma'
 end
 
 group :test do
