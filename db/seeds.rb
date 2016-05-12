@@ -1,9 +1,7 @@
 User.create!([
-  {email: "me@chrishoenack.com", password: "boogers"},
-  {email: "test@test.test", password: "boogers"}
+  {email: "me@chrishoenack.com", password: "password"},
+  {email: "test@test.test", password: "tester"}
 ])
-User.first.encrypted_password = '$2a$11$csDBEbgk0UpxwI9Sq/6muOTNofVDyiZa.LXw8eY2isTgoOsEvitpC'
-User.last.encrypted_password = '$2a$11$0HvgHYcde9EWipFRiggo6OOHtGWBiOrpvbzGdi.nkGrB0KCoDQLcK'
 Apartment.create!([
   {building: "1300", unit: "A", paint_scheme: "White", kitchen_counter: "Wood Grain Formica", bathroom_sink: "Standard", refrigerator_type: "White", ac_filter: "12x24", ac_maint: "2016-05-03", refrigerator_maint: "2015-10-14", notes: ""},
   {building: "1300", unit: "B", paint_scheme: "White", kitchen_counter: "Brown Formica", bathroom_sink: "EuroBath", refrigerator_type: "Unknown", ac_filter: "12x24", ac_maint: "2016-01-01", refrigerator_maint: "2015-01-01", notes: ""},
