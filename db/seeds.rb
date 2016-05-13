@@ -86,7 +86,6 @@ Lease.create!([
   {start_date: "2016-01-01", end_date: "2017-01-01", full_lease: "", notes: "", tenant_id: 16, apartment_id: 10, monthly_rent: 749, paid_rent: 3745},
   {start_date: "2016-01-01", end_date: "2017-01-01", full_lease: "", notes: "", tenant_id: 19, apartment_id: 18, monthly_rent: 749, paid_rent: 3745},
   {start_date: "2016-01-01", end_date: "2017-01-01", full_lease: "", notes: "", tenant_id: 22, apartment_id: 23, monthly_rent: 749, paid_rent: 2996},
-  {start_date: "2016-01-01", end_date: "2017-01-01", full_lease: "", notes: "", tenant_id: 21, apartment_id: 20, monthly_rent: 749, paid_rent: 3745},
   {start_date: "2016-01-01", end_date: "2017-01-01", full_lease: "", notes: "", tenant_id: 18, apartment_id: 7, monthly_rent: 749, paid_rent: 3745},
   {start_date: "2016-01-01", end_date: "2017-01-01", full_lease: "", notes: "", tenant_id: 23, apartment_id: 24, monthly_rent: 749, paid_rent: 3745},
   {start_date: "2016-01-01", end_date: "2017-01-01", full_lease: "", notes: "", tenant_id: 25, apartment_id: 21, monthly_rent: 749, paid_rent: 3745},
