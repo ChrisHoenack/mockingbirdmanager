@@ -73,7 +73,7 @@
                 <span class="input-group-addon chriswidth">Age:</span> 
                 <span class="form-control">
                     <% if @apartment.tenants.first != nil %>
-                        <%= "#{remove_unwanted_words time_ago_in_words(@apartment.tenants.first.dob)} old" %>
+                        <%= "#{ find_age @apartment.tenants.first.dob} years old" %>
                     <% end %>
                 </span>
             </p>
