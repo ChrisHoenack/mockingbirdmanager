@@ -42,6 +42,13 @@ class LeasesController < ApplicationController
   def new_rent
     @lease.paid_rent += params[:new_rent].to_i
     @lease.save
+    if @lease.rent_owed == 0
+      flash[:alert] = "Tenant is up to date!"
+    elsif @lease.rent_owed > 0
+      flash[:notice] = "Tenant still owes $#{@lease.rent_owed}"
+    elsif @lease.rent_owed < 0
+      flash[:notice] = "Tenant has a credit of $#{@lease.rent_owed.abs}!"
+    end
     redirect_to @lease.apartment
   end
   

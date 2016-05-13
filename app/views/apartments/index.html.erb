@@ -1,16 +1,22 @@
 <h2 class="text-center">Apartment List</h2>
 <div class="row">
-    <% @apartments.each do |apt| %>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <% color_code = "" %>
-            <% if apt.leases.first == nil %>
-                <% color_code = "danger" %>
-            <% elsif apt.leases.first.rent_owed > 0 %>
-                <% color_code = "warning" %>
-            <% else %>
-                <% color_code = "success" %>
+    <% @apartments.each_slice(4) do |building| %>
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+            <div class="jumbotron">
+            <% building.each do |apt| %>
+                <div class="text-center">
+                    <% color_code = "" %>
+                    <% if apt.leases.first == nil %>
+                        <% color_code = "danger" %>
+                    <% elsif apt.leases.first.rent_owed > 0 %>
+                        <% color_code = "warning" %>
+                    <% else %>
+                        <% color_code = "success" %>
+                    <% end %>
+                    <h1><%= link_to "#{apt.building} ##{apt.unit}", apartment_path(apt), class: "btn btn-#{color_code} btn-lg", style: "font-weight: 900; border-width: 10px; border-radius: 30px;" %></h1>
+                </div>
             <% end %>
-            <h1><%= link_to "#{apt.building} ##{apt.unit}", apartment_path(apt), class: "btn btn-#{color_code} btn-lg", style: "font-weight: 900; border-width: 10px; border-radius: 30px;" %></h1>
+            </div>
         </div>
     <% end %>
 </div>
