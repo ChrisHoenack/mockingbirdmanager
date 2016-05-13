@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :apartments
   resources :tenants
   resources :leases do
-    put 'new_rent', as: 'new_rent'
+    put 'new_rent', as: 'new_rent', on: :member
   end
   
   root "apartments#index"

@@ -40,8 +40,9 @@ class LeasesController < ApplicationController
   end
   
   def new_rent
-    @lease.paid_rent += params[:new_rent]
+    @lease.paid_rent += params[:new_rent].to_i
     @lease.save
+    redirect_to @lease.apartment
   end
   
   private
