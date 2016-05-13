@@ -3,10 +3,12 @@
     <% @apartments.each do |apt| %>
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
             <% color_code = "" %>
-            <% if apt.leases.first != nil %>
-                <% color_code = "success" %>
-            <% else %>
+            <% if apt.leases.first == nil %>
+                <% color_code = "danger" %>
+            <% elsif apt.leases.first.rent_owed > 0 %>
                 <% color_code = "warning" %>
+            <% else %>
+                <% color_code = "success" %>
             <% end %>
             <h1><%= link_to "#{apt.building} ##{apt.unit}", apartment_path(apt), class: "btn btn-#{color_code} btn-lg", style: "font-weight: 900; border-width: 10px; border-radius: 30px;" %></h1>
         </div>

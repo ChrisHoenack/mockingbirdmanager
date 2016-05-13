@@ -70,6 +70,14 @@
                 </span>
             </p>
             <p class="input-group input-group-md">
+                <span class="input-group-addon chriswidth">Rent Owed:</span> 
+                <span class="form-control">
+                    <% if @apartment.leases.first != nil %>
+                        <%= "$#{ @apartment.leases.first.rent_owed}" %>
+                    <% end %>
+                </span>
+            </p>
+            <p class="input-group input-group-md">
                 <span class="input-group-addon chriswidth">Age:</span> 
                 <span class="form-control">
                     <% if @apartment.tenants.first != nil %>

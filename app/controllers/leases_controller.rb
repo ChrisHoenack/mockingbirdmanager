@@ -46,7 +46,7 @@ class LeasesController < ApplicationController
     end
 
     def lease_params
-      params.require(:lease).permit(:start_date, :end_date, :full_lease, :notes, :tenant_id, :apartment_id)
+      params.require(:lease).permit(:start_date, :end_date, :full_lease, :notes, :tenant_id, :apartment_id, :monthly_rent, :paid_rent)
     end
     
 end
