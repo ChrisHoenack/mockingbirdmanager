@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     end
   resources :apartments
   resources :tenants
-  resources :leases
+  resources :leases do
+    put 'new_rent', as: 'new_rent'
+  end
   
   root "apartments#index"
   # The priority is based upon order of creation: first created -> highest priority.

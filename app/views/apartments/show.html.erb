@@ -106,9 +106,36 @@
             <% if @apartment.leases.count != 0 %>
                 <%= link_to "Edit", edit_tenant_path(@apartment.tenants.first), class: "btn btn-warning" %>
                 <%= link_to "Evict", lease_path(@apartment.leases.ids), method: :delete, data: { confirm: "Are you really that heartless?" }, class: "btn btn-danger" %>
+                
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#payRent">
+                  Pay Rent
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="payRent" tabindex="-1" role="dialog" aria-labelledby="Pay Rent">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Pay Rent</h4>
+                      </div>
+                      debugger
+                      <%= form_tag(lease_new_rent_path(paid_rent), method: :put) %>
+                        <div class="modal-body">
+                          <%= text_field_tag :new_rent, class: "form-control" %>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <input type="submit" name="commit" value="Submit" class="btn btn-primary" />
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
             <% else %>
                 <%= link_to "New Lease", new_lease_path, class: "btn btn-success" %>
             <% end %>
         </p>
-    </div
+    </div>
 </div>

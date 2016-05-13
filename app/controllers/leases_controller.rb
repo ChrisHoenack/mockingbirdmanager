@@ -1,5 +1,5 @@
 class LeasesController < ApplicationController
-  before_action :set_lease, only: [:show, :edit, :update, :destroy]
+  before_action :set_lease, only: [:show, :edit, :update, :destroy, :new_rent]
   before_action :authenticate_user!
     
   def index
@@ -37,6 +37,11 @@ class LeasesController < ApplicationController
   def destroy
     @lease.destroy
     redirect_to root_path
+  end
+  
+  def new_rent
+    @lease.paid_rent += params[:new_rent]
+    @lease.save
   end
   
   private
