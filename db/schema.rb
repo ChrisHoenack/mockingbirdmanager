@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160513160034) do
+=======
+ActiveRecord::Schema.define(version: 20160513160900) do
+>>>>>>> edit/leasesaddpaidrent
 
   create_table "apartments", force: :cascade do |t|
     t.string   "building"
@@ -38,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160513160034) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "monthly_rent"
+    t.integer  "paid_rent"
   end
 
   create_table "tenants", force: :cascade do |t|
