@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160513160034) do
-=======
 ActiveRecord::Schema.define(version: 20160513160900) do
->>>>>>> edit/leasesaddpaidrent
 
   create_table "apartments", force: :cascade do |t|
     t.string   "building"
