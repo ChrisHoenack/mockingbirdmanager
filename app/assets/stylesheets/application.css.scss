@@ -21,3 +21,9 @@
 @import "apartments";
 @import "tenants";
 @import "leases";
+
+.field_with_errors {
+    input {
+        background-color: #FFAAAA;
+    }
+}

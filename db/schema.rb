@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160513205245) do
+ActiveRecord::Schema.define(version: 20160514004209) do
 
   create_table "apartments", force: :cascade do |t|
     t.string   "building"
@@ -42,12 +42,12 @@ ActiveRecord::Schema.define(version: 20160513205245) do
   end
 
   create_table "tenants", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.date     "dob"
-    t.text     "notes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "first_name", default: ""
+    t.string   "last_name",  default: ""
+    t.date     "dob",        default: '1990-01-01'
+    t.text     "notes",      default: ""
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   create_table "users", force: :cascade do |t|
