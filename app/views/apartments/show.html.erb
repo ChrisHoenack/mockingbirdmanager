@@ -42,6 +42,7 @@
                 <span class="input-group-addon chriswidth">Notes:</span>
                 <span class="form-control"><%= @apartment.notes %></span>
             </p>
+            <br />
             <p class="text-center">
                 <%= link_to "Edit", edit_apartment_path(@apartment), class: "btn btn-warning" %> 
                 <%= link_to "Home", root_path, class: "btn btn-info" %>
@@ -101,39 +102,42 @@
                     <% end %>
                 </span>
             </p>
-        </div>
-        <p class="text-center">
-            <% if @apartment.leases.count != 0 %>
-                <%= link_to "Edit", edit_tenant_path(@apartment.tenants.first), class: "btn btn-warning" %>
-                <%= link_to "Evict", lease_path(@apartment.leases.ids), method: :delete, data: { confirm: "Are you really that heartless?" }, class: "btn btn-danger" %>
-                
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#payRent">
-                  Pay Rent
-                </button>
-                
-                <!-- Modal -->
-                <div class="modal fade" id="payRent" tabindex="-1" role="dialog" aria-labelledby="Pay Rent">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Pay Rent</h4>
+            <br />
+            <p class="text-center">
+                <% if @apartment.leases.count != 0 %>
+                    <%= link_to "Edit", edit_tenant_path(@apartment.tenants.first), class: "btn btn-warning" %>
+                    <%= link_to "Issue Poolkey", "#", class: "btn btn-primary", data: { confirm: "This feature is in progress." } %>
+                    <%= link_to "Issue Storage", "#", class: "btn btn-primary", data: { confirm: "This feature is in progress." } %>
+                    <%= link_to "Evict", lease_path(@apartment.leases.ids), method: :delete, data: { confirm: "Are you really that heartless?" }, class: "btn btn-danger" %>
+                    
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#payRent">
+                      Pay Rent
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="payRent" tabindex="-1" role="dialog" aria-labelledby="Pay Rent">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Pay Rent</h4>
+                          </div>
+                          <%= form_tag(new_rent_lease_path(@apartment.leases.first), method: :put) %>
+                            <div class="modal-body">
+                              <%= text_field_tag :new_rent, nil, class: "form-control" %>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <input type="submit" name="commit" value="Submit" class="btn btn-primary" />
+                            </div>
+                        </div>
                       </div>
-                      <%= form_tag(new_rent_lease_path(@apartment.leases.first), method: :put) %>
-                        <div class="modal-body">
-                          <%= text_field_tag :new_rent, nil, class: "form-control" %>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <input type="submit" name="commit" value="Submit" class="btn btn-primary" />
-                        </div>
                     </div>
-                  </div>
-                </div>
-            <% else %>
-                <%= link_to "New Lease", new_lease_path, class: "btn btn-success" %>
-            <% end %>
-        </p>
+                <% else %>
+                    <%= link_to "New Lease", new_lease_path, class: "btn btn-success" %>
+                <% end %>
+            </p>
+        </div>
     </div>
 </div>
